@@ -1,14 +1,29 @@
 import { Routes, Route } from "react-router-dom";
 import Appbar from './AppBar/AppBar';
+import { lazy } from "react";
+import SharedLayout from './SharedLayout/SharedLayout';
 
+const Home = lazy(() =>
+  import("../pages/Home.js")
+);
+
+const FilmDetails = lazy(() =>
+  import("../pages/FilmDetails.js")
+);
+// const Home = createAsyncComponent("../pages/Home.js");
 
 export const App = () => {
   return (
   <div>
-    {/* <Appbar /> */}
       <Routes>
 
-        <Route path="/" element={<Appbar />}></Route>
+        <Route path="/" element={<SharedLayout />}>
+        {/* <Route path="/" element={<Appbar />}>  */}
+          <Route index element={<Home />} /> 
+          </Route>
+          {/* <Route path="/" element={<FilmDetails />} />  */}
+        
+        {/* <Route index element={<Home />}></Route> */}
         {/* <Route path="/" element={<SharedLayout />}>
           <Route path="/" element={<Home />}></Route>
           <Route path="/about" element={<Movies  />}></Route>
@@ -19,5 +34,3 @@ export const App = () => {
     </div>
   );
 };
-
-console.log(Appbar);
