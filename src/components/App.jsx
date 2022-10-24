@@ -1,10 +1,13 @@
 import { Routes, Route } from "react-router-dom";
-import Appbar from './AppBar/AppBar';
+// import Appbar from './AppBar/AppBar';
 import { lazy } from "react";
 import SharedLayout from './SharedLayout/SharedLayout';
 
 const Home = lazy(() =>
   import("../pages/Home.js")
+);
+const Movies = lazy(() =>
+  import('../pages/Movies' /* webpackChunkName: "HomePage" */)
 );
 
 const FilmDetails = lazy(() =>
@@ -18,9 +21,13 @@ export const App = () => {
       <Routes>
 
         <Route path="/" element={<SharedLayout />}>
-        {/* <Route path="/" element={<Appbar />}>  */}
-          <Route index element={<Home />} /> 
-          </Route>
+          <Route index element={<Home />}></Route>
+          <Route path="movies" element={<Movies />}></Route>
+          <Route path="/movies/:movieId/" element={<FilmDetails />}> 
+        </Route>
+        </Route>
+         
+
           {/* <Route path="/" element={<FilmDetails />} />  */}
         
         {/* <Route index element={<Home />}></Route> */}
@@ -32,5 +39,7 @@ export const App = () => {
         </Route> */}
       </Routes>
     </div>
+    
   );
 };
+

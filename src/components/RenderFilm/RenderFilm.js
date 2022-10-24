@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { getMovies } from '../movieApi';
+import { fetchMovies } from '../movieApi';
 
 export default function RenderFilm() {
   const [renderFilm, setRenderFilm] = useState([]);
@@ -10,7 +10,7 @@ export default function RenderFilm() {
   useEffect(() => {
     async function fetchMovie() {
       try {
-        const response = await getMovies();
+        const response = await fetchMovies();
         setRenderFilm(response.results);
       } catch (error) {
         console.log('Error1');
@@ -18,12 +18,13 @@ export default function RenderFilm() {
       }
     }
     fetchMovie();
+    
   }, []);
 
   return (
-    <div>
-      {renderFilm.map(({title, overview, id}) => (
-        <NavLink key={id} to={`/movieId/${id}`}>
+    <ul>
+      {renderFilm.map(({title, overview, poster_path, id}) => (
+        <NavLink key={id} to={`/movies/:movieId${id}`}>
           <div>
             <div src={IMG_URL} alt={title} />
             <div> {title}</div>
@@ -31,6 +32,6 @@ export default function RenderFilm() {
         </NavLink>
       ))}
       <Outlet />
-    </div>
+    </ul>
   );
 }
