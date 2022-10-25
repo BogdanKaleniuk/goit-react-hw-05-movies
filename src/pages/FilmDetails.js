@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react';
 import { GetMoviesDetails } from "../components/movieApi";
 import { useParams } from 'react-router-dom';
 import { NavLink, Outlet } from 'react-router-dom';
+import { Button } from './FilmDetails.style';
 
-export default function FilmDetails() {
+  export default function FilmDetails() {
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -14,18 +15,17 @@ export default function FilmDetails() {
   const { movieId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
- 
 
   let activeClassName = {
-    color: '#2196f3',
+    color: 'orangered',
   };
+  let activeColorNameBlack = {
+  color: 'black',
+};
 
   const handleClick = () => navigate(location?.state?.from ?? '/');
-// const API_URL = 'https://api.themoviedb.org/3/';
-// const API_KEY = '7880f10208129df405f0f3d5264141ee';
 
   useEffect(() => {
-    // const urlDetails = `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`;
     setLoading(true);
     GetMoviesDetails(movieId)
       .then(res => {
@@ -41,9 +41,9 @@ export default function FilmDetails() {
   return (
     <>
       <div>
-        <button onClick={handleClick}>
+        <Button onClick={handleClick}>
           Go back
-        </button>
+        </Button>
         
         {loading && 'Loading ...'}
         {error && <div>{error}</div>}
@@ -67,7 +67,7 @@ export default function FilmDetails() {
           <h2>Additional Information</h2>
           <NavLink
             to={`/movies/${movieId}/reviews`}
-            style={({ isActive }) => (isActive ? activeClassName : undefined)}
+            style={({ isActive }) => (isActive ? activeClassName : activeColorNameBlack)}
             state={location.state}
           >
             <p>Reviews</p>
@@ -75,7 +75,7 @@ export default function FilmDetails() {
 
           <NavLink
             to={`/movies/${movieId}/cast`}
-            style={({ isActive }) => (isActive ? activeClassName : undefined)}
+            style={({ isActive }) => (isActive ? activeClassName : activeColorNameBlack)}
             state={location.state}
           >
             <p>Cast</p>

@@ -1,27 +1,31 @@
 import { Outlet } from "react-router-dom";
-import { Container, Header } from "./SharedLayout.styled";
+import { Container, Header, Link } from "./SharedLayout.styled";
 import { NavLink } from 'react-router-dom';
 import { Suspense } from "react";
 
-let activeColorName = {
-  color: '#2196f3',
-};
+// let activeColorName = {
+//   color: 'blue',
+// };
+// let activeColorNameBlack = {
+//   color: 'black',
+// };
 
 const Navigation = () => (
   <nav>
-    <NavLink
+    <Link
       to="/"
-      style={({ isActive }) => (isActive ? activeColorName : undefined)}
+      // style={({ isActive }) => (isActive ? activeColorName : activeColorNameBlack)}
+      
     >
       Home
-    </NavLink>
+    </Link>
 
-    <NavLink
+    <Link
       to="/movies"
-      style={({ isActive }) => (isActive ? activeColorName : undefined)}
+      // style={({ isActive }) => (isActive ? activeColorName : activeColorNameBlack)}
     >
       Movies
-    </NavLink>
+    </Link>
   </nav>
 );
 
