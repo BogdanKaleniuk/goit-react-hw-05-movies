@@ -24,27 +24,19 @@ const API_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = '7880f10208129df405f0f3d5264141ee';
 
   useEffect(() => {
-    
     const urlDetails = `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`;
-   function fetchMovie() {
-      fetch(urlDetails)
-        .then(response => response.json())
-        .then(data => {
-          setMovie({
-            poster: `https://image.tmdb.org/t/p/w500/${data.poster_path}`,
-            title: data.title,
-            score: Number.parseInt(data.vote_average * 10),
-            overview: data.overview,
-            genres: data.genres
-              .reduce((acc, genre) => (acc += genre.name + ' '), '')
-              .trim(),
-          });
-        })
-        .catch(error => console.log(error));
-    }
-
-    fetchMovie();
+    setLoading(true);
+    GetMoviesDetails(movieId)
+      .then(res => {
+        setMovie(res);
+      })
+      .catch(error => {
+        setError('Error3');
+        console.log(error);
+      })
+      .finally(() => setLoading(false));
   }, [movieId]);
+  console.log(movie)
   return (
     <>
       <div>
