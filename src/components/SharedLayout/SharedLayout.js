@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Container, Header } from "./SharedLayout.styled";
 import { NavLink } from 'react-router-dom';
+import { Suspense } from "react";
 
 let activeColorName = {
   color: '#2196f3',
@@ -32,7 +33,9 @@ export default function SharedLayout () {
           <Navigation />
         </nav>
       </Header>
+      <Suspense>
         <Outlet />
+      </Suspense>
     </Container>
   );
 };

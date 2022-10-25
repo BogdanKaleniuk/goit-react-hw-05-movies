@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 // import { fetchSearchMovies } from '../components/movieApi';
 
-const MoviesPage = () => {
+const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const queryParam = searchParams.get('query');
   const [movies, setMovies] = useState([]);
@@ -64,4 +64,4 @@ const API_KEY = '7880f10208129df405f0f3d5264141ee';
     </div>
   );
 };
-export default MoviesPage;
+export default Movies;
