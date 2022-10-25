@@ -24,7 +24,7 @@ export default function RenderFilm() {
   return (
     <ul>
       {renderFilm.map(({title, overview, poster_path, id}) => (
-        <NavLink key={id} to={`/movies/:movieId${id}`}>
+        <NavLink key={id} to={`/movies/${id}`}>
           <div>
             <div src={IMG_URL} alt={title} />
             <div> {title}</div>

@@ -7,7 +7,7 @@ const Home = lazy(() =>
   import("../pages/Home.js")
 );
 const Movies = lazy(() =>
-  import('../pages/Movies' /* webpackChunkName: "HomePage" */)
+  import("../pages/Movies.js")
 );
 
 const FilmDetails = lazy(() =>
@@ -23,7 +23,7 @@ export const App = () => {
 
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />}></Route>
-          <Route path="movies" element={<Movies />}></Route>
+          <Route path="movies/" element={<Movies />}></Route>
           <Route path="/movies/:movieId/" element={<FilmDetails />}> 
         </Route>
         </Route>
