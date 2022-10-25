@@ -6,21 +6,18 @@ import { Link, useLocation, useSearchParams } from 'react-router-dom';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const queryParam = searchParams.get('query');
+  const defaultParams = searchParams.get('query');
   const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState(queryParam);
+  const [query, setQuery] = useState(defaultParams ? defaultParams : '');
   const location = useLocation();
-
-const API_URL = 'https://api.themoviedb.org/3/';
-const API_KEY = '7880f10208129df405f0f3d5264141ee';
 
   useEffect(() => {
     if (query === '') {
       return;
     }
-
     function fetchMovie() {
-      fetch(`${API_URL}search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${query}`)
+      
+      fetch(`https://api.themoviedb.org/3/search/movie?api_key=7880f10208129df405f0f3d5264141ee&language=en-US&page=1&include_adult=false&query=${query}`)
         .then(response => response.json())
         .then(data => {
           setMovies(

@@ -5,7 +5,6 @@ import { fetchMovies } from '../movieApi';
 
 export default function RenderFilm() {
   const [renderFilm, setRenderFilm] = useState([]);
-  const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
   useEffect(() => {
     async function fetchMovie() {
@@ -14,11 +13,10 @@ export default function RenderFilm() {
         setRenderFilm(response.results);
       } catch (error) {
         console.log('Error1');
-      } finally {
+      } finally {  
       }
     }
     fetchMovie();
-    
   }, []);
 
   return (
@@ -26,7 +24,7 @@ export default function RenderFilm() {
       {renderFilm.map(({title, overview, poster_path, id}) => (
         <NavLink key={id} to={`/movies/${id}`}>
           <div>
-            <div src={IMG_URL} alt={title} />
+            <div alt={title} />
             <div> {title}</div>
           </div>
         </NavLink>
