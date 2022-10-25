@@ -28,6 +28,7 @@ const API_KEY = '7880f10208129df405f0f3d5264141ee';
           );
         })
         .catch(error => console.log(error));
+        
     }
 
     fetchMovie();

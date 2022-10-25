@@ -14,7 +14,9 @@ const FilmDetails = lazy(() =>
   import("../pages/FilmDetails.js")
 );
 
-// const Home = createAsyncComponent("../pages/Home.js");
+const Reviews = lazy(() => import("../components/Reviews/Rewiews"));
+
+const Cast = lazy(() => import("../components/Cast/Cast"));
 
 export const App = () => {
   return (
@@ -25,6 +27,8 @@ export const App = () => {
           <Route index element={<Home />}></Route>
           <Route path="movies/" element={<Movies />}></Route>
           <Route path="/movies/:movieId/" element={<FilmDetails />}> 
+            <Route path="/movies/:movieId/reviews" element={<Reviews />} />
+            <Route path="/movies/:movieId/cast" element={<Cast />} />
         </Route>
         </Route>
          

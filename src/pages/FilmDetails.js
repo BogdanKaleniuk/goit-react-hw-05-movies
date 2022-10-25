@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { GetMoviesDetails } from "../components/movieApi";
 import { useParams } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 export default function FilmDetails() {
   const [movie, setMovie] = useState(null);
@@ -15,9 +16,9 @@ export default function FilmDetails() {
   const navigate = useNavigate();
  
 
-  // let activeClassName = {
-  //   color: '#2196f3',
-  // };
+  let activeClassName = {
+    color: '#2196f3',
+  };
 
   const handleClick = () => navigate(location?.state?.from ?? '/');
 // const API_URL = 'https://api.themoviedb.org/3/';
@@ -48,7 +49,7 @@ export default function FilmDetails() {
         {error && <div>{error}</div>}
         {movie && (
           <div>
-            <img
+            <img width={300}
               src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               alt={movie.title}
             />
@@ -64,7 +65,7 @@ export default function FilmDetails() {
         <hr />
         <div>
           <h2>Additional Information</h2>
-          {/* <NavLink
+          <NavLink
             to={`/movies/${movieId}/reviews`}
             style={({ isActive }) => (isActive ? activeClassName : undefined)}
             state={location.state}
@@ -78,9 +79,9 @@ export default function FilmDetails() {
             state={location.state}
           >
             <p>Cast</p>
-          </NavLink> */}
+          </NavLink>
           <hr />
-          {/* <Outlet /> */}
+          <Outlet />
         </div>
       </div>
     </>
