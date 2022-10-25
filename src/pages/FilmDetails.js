@@ -1,4 +1,4 @@
-import {NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { GetMoviesDetails } from "../components/movieApi";
 import { useParams } from 'react-router-dom';
@@ -15,9 +15,9 @@ export default function FilmDetails() {
   const navigate = useNavigate();
  
 
-  let activeClassName = {
-    color: '#2196f3',
-  };
+  // let activeClassName = {
+  //   color: '#2196f3',
+  // };
 
   const handleClick = () => navigate(location?.state?.from ?? '/');
 
@@ -60,9 +60,9 @@ export default function FilmDetails() {
           </div>
         )}
         <hr />
-        {/* <div>
+        <div>
           <h2>Additional Information</h2>
-          <NavLink
+          {/* <NavLink
             to={`/movies/${movieId}/reviews`}
             style={({ isActive }) => (isActive ? activeClassName : undefined)}
             state={location.state}
@@ -76,10 +76,10 @@ export default function FilmDetails() {
             state={location.state}
           >
             <p>Cast</p>
-          </NavLink>
+          </NavLink> */}
           <hr />
-          <Outlet />
-        </div> */}
+          {/* <Outlet /> */}
+        </div>
       </div>
     </>
   );

@@ -25,7 +25,7 @@ const handleQuerySearch = e => {
         <input
           name="query"
           type="text"
-          name="searchQuery"
+          // name="searchQuery"
           value={searchQuery}
           autoComplete="off"
           autoFocus

@@ -13,6 +13,7 @@ const Movies = lazy(() =>
 const FilmDetails = lazy(() =>
   import("../pages/FilmDetails.js")
 );
+
 // const Home = createAsyncComponent("../pages/Home.js");
 
 export const App = () => {

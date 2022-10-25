@@ -1,6 +1,5 @@
-import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
-import { Container, Header, Logo, Link } from "./SharedLayout.styled";
+import { Container, Header } from "./SharedLayout.styled";
 import { NavLink } from 'react-router-dom';
 
 let activeColorName = {
