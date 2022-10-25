@@ -1,8 +1,8 @@
-import SearchBar from '../components/SearchBar/SearchBar';
-import PropTypes from 'prop-types';
+// import SearchBar from '../components/SearchBar/SearchBar';
+// import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import { fetchSearchMovies } from '../components/movieApi';
+// import { fetchSearchMovies } from '../components/movieApi';
 
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
