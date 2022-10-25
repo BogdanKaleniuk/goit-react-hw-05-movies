@@ -20,11 +20,11 @@ export default function FilmDetails() {
   // };
 
   const handleClick = () => navigate(location?.state?.from ?? '/');
-const API_URL = 'https://api.themoviedb.org/3/';
-const API_KEY = '7880f10208129df405f0f3d5264141ee';
+// const API_URL = 'https://api.themoviedb.org/3/';
+// const API_KEY = '7880f10208129df405f0f3d5264141ee';
 
   useEffect(() => {
-    const urlDetails = `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`;
+    // const urlDetails = `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`;
     setLoading(true);
     GetMoviesDetails(movieId)
       .then(res => {
