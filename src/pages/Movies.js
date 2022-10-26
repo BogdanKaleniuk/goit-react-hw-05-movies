@@ -20,13 +20,21 @@ const Movies = () => {
       fetch(`https://api.themoviedb.org/3/search/movie?api_key=7880f10208129df405f0f3d5264141ee&language=en-US&page=1&include_adult=false&query=${query}`)
         .then(response => response.json())
         .then(data => {
+           if (data.total_results === 0) {
+          alert(
+            'По запиту немає фільмів, спробуйте ще раз'
+          );
+          return;
+        }
           setMovies(
             data.results.map(({ id, title }) => ({ id: id, title: title }))
           );
         })
+        
         .catch(error => console.log(error));
         
     }
+    
 
     fetchMovie();
   }, [query]);
