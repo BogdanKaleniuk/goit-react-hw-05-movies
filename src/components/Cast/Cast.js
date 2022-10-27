@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// import { fetchMoviesCast } from '../movieApi';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -9,7 +8,6 @@ const Cast = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 const fetchMoviesCast = (`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=7880f10208129df405f0f3d5264141ee&language=en-US`)
-// fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=7880f10208129df405f0f3d5264141ee&language=en-US`)
   useEffect(() => {
     const fetchCast = async () => {
       try {
