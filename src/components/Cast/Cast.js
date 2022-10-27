@@ -21,7 +21,7 @@ const fetchMoviesCast = (`https://api.themoviedb.org/3/movie/${movieId}/credits?
       }
     };
     fetchCast();
-  }, [movieId]);
+  }, []);
 
   return (
     <>

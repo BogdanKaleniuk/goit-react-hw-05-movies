@@ -6,7 +6,7 @@ const Reviews = () => {
   const { movieId } = useParams();
 
   const [reviews, setReviews] = useState([]);
-  const [error] = useState(null);
+  // const [error] = useState(null);
 
     useEffect(() => {
         function fetchReviews() {
