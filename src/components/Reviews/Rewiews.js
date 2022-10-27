@@ -30,7 +30,8 @@ console.log(setReviews)
   
 return (
     <>
-      {error && <div>{error}</div>}
+    {reviews.length > 0 ? ( 
+      // {error && <div>{error}</div>}
       <ul>
         {reviews.map(review => {
           return (
@@ -41,7 +42,9 @@ return (
           );
         })}
       </ul>
-      {/* {reviews} */}
+      ) : (
+        <p>показывайте сообщение что отзывов нет</p>
+      )}
     </>
   );
 };
