@@ -30,7 +30,7 @@ export const App = () => {
             <Route path="/movies/:movieId/reviews" element={<Reviews />} />
             <Route path="/movies/:movieId/cast" element={<Cast />} />
         </Route>
-        <Route path="*" element={<div>Отак тіпа має бути?</div>} />
+        <Route path="*" element={<div>Сторінка не знайдена!</div>} />
         </Route>
          
 
